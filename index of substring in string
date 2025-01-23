@@ -1,0 +1,77 @@
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String a ="WELCOMETOZOHOCORPORATION";
+        
+        a=a.toLowerCase();
+        
+        int n = a.length(); //24
+        
+        int grid=0;
+        
+        for(int i=1;i>=0;i++)
+        {
+            if(i*i>=n)
+            {
+                grid=i;
+                break;
+            }
+        }
+        
+        char[][] matrix = new char[grid][grid];
+        int k=0;
+        for(int i=1;i<=grid;i++)
+        {
+            for(int j=1;j<=grid;j++)
+            {
+                if(k==n)
+                {
+                    break;
+                }
+                matrix[i-1][j-1]= a.charAt(k++);                
+            }
+            
+        }
+        int[] start = new int[2];
+        int[] end = new int[2];
+        
+        // LEFT TO RIGHT
+        for(int i=0;i<grid;i++)
+        {
+            // [ w e l c o]
+            for(int j=0;j<=matrix[i].length-3;j++)//5-3
+            {
+                if(matrix[i][j]=='t' && matrix[i][j+1]=='o' && matrix[i][j+2]=='o')
+                {
+                    start[0]=j;
+                    end[0]=j+2;
+                    start[1]=i;
+                    end[1]=i;
+                }
+            }
+            
+        }
+        
+     
+        //TOP TO BOTTOM
+        for(int col=0;col<grid;col++)
+        {
+            for(int row=0;row<=grid-3;row++)
+            {
+              if(matrix[row][col]=='t' && matrix[row+1][col]=='o' && matrix[row+2][col]=='o')
+               {
+                    start[0]=row;
+                    end[0]=row+2;;
+                    start[1]=col;
+                    end[1]=col;
+                    
+                }
+            }
+        }
+        
+        
+        
+        System.out.println(Arrays.toString(start)+" "+Arrays.toString(end));
+    }
+}
