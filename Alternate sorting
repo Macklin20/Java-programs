@@ -1,0 +1,25 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,6,7};
+        
+        int[] alt_arr= new int[arr.length];  // new array
+        
+        int left=0;
+        int right=arr.length-1;
+        int i=0;
+        
+        
+        while(left<=right)
+        {
+            
+            alt_arr[i]=arr[right];
+            if(i<arr.length-1)  // condition to check index out bound exception because of i+=2
+            alt_arr[i+1]=arr[left];
+            left++;
+            right--;
+            i=i+2;
+        }
+        System.out.println(Arrays.toString(alt_arr));
+    }
+}
