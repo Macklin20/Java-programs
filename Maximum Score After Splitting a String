@@ -1,0 +1,35 @@
+class Solution {
+    public int maxScore(String s) {
+        int max=0, n=s.length();
+
+        for(int i=1;i<n;i++)
+        {
+            int zero=0;
+           int  one=0;
+            String left = s.substring(0,i);
+            String right = s.substring(i,n);
+
+            for(char c:left.toCharArray())
+            {
+                if(c=='0')
+                {
+                    zero++;
+                }
+            }
+            for(char c1:right.toCharArray())
+            {
+                if(c1=='1')
+                {
+                    one++;
+                }
+            }
+
+            if(max<one+zero)
+            {
+                max=one+zero;
+            }
+        }
+
+        return max;
+    }
+}
