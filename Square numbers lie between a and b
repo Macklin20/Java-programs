@@ -2,8 +2,8 @@
 import java.util.*;
 class Main {
     public static void main(String[] args) {
-        int start =20;
-        int end = 100;
+        int start =20; //a
+        int end = 100; //b
         ArrayList<Integer> list  = new ArrayList<>();
         for(int i=start;i<=end;i++)
         {
