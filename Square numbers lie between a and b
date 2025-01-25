@@ -1,0 +1,28 @@
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int start =20;
+        int end = 100;
+        ArrayList<Integer> list  = new ArrayList<>();
+        for(int i=start;i<=end;i++)
+        {
+            boolean issqr = false;
+            
+            for(int j=1;j*j<=i;j++)
+            {
+                if(j*j==i)
+                {
+                    issqr=true;
+                    break;
+                }
+            }
+            
+            if(issqr)
+            {
+                list.add(i);
+            }
+        }
+        System.out.println(list);
+    }
+}
